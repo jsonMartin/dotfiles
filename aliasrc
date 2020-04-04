@@ -1,0 +1,43 @@
+alias ls="lsd"
+alias l="lsd"
+alias la="lsd -a"
+alias lrth="lsd -lrtha"
+alias h="history"
+alias p="ping"
+alias pg="ping www.google.com"
+alias p1="ping 1.1"
+alias c="clear"
+alias y="yarn"
+alias du="du -h"
+alias vs="code"
+alias open="xdg-open"
+alias o="open"
+alias py="python3"
+alias dc="docker-compose"
+alias dcu="docker-compose up"
+alias dcd="docker-compose down"
+alias dcr="docker-compose restart"
+alias vim="nvim"
+alias v="nvim"
+alias vo="nvim -o \`fzf\`" # Allow fuzzy opening files for vim
+alias b="bat"
+# alias fzf="fzf -m"
+# alias f="fzf"
+alias t="tmux"
+
+# Xclip (copy to clipboard from terminal)
+alias xclip="xclip -sel clip"
+alias xc="xclip"
+
+# Git aliases
+alias gcam="git commit -am"
+alias gc="git commit"
+alias gcm="git commit -m"
+alias gaa="git add --all"
+alias gco="git checkout"
+alias g="git"
+alias gl="git log --all --graph --decorate"
+
+# Helpers
+alias mv="mv -i"
+alias cp="cp -i"

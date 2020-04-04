@@ -35,14 +35,15 @@ source ~/.aliasrc
 
 eval $(thefuck --alias) # Add alias for the "fuck" command
 
-# Load Paths
+# TODO: Fix scripts
+# Load Paths 
 # Adds `~/linuxConfig/scripts` and all subdirectories to $PATH
-export PATH="$PATH:$(du "$HOME/linuxConfig/scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+# export PATH="$PATH:$(du "$HOME/linuxConfig/scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 
 # Broot tool
-source /home/json/.config/broot/launcher/bash/br
+# source /home/json/.config/broot/launcher/bash/br
 
 # FZF shell bindings (IMPORTANT: These need to go last)
 source /usr/share/fzf/key-bindings.zsh
