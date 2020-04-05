@@ -8,4 +8,5 @@
     ~/.aliasrc: aliasrc
     ~/.config/alacritty/alacritty.yml: alacritty.yml
     ~/.config/nvim/init.vim: init.vim
+    ~/.ackrc: ackrc
 
