@@ -48,6 +48,7 @@ eval $(thefuck --alias) # Add alias for the "fuck" command
 
 # Set default editor to vim
 export EDITOR=/usr/bin/nvim
+export VISUAL=/usr/bin/nvim
 
 # FZF shell bindings (IMPORTANT: These need to go last)
 source /usr/share/fzf/key-bindings.zsh
