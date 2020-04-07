@@ -43,7 +43,7 @@ eval $(thefuck --alias) # Add alias for the "fuck" command
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 
 # Broot tool
-# source /home/json/.config/broot/launcher/bash/br
+source /home/json/.config/broot/launcher/bash/br
 
 
 # Set default editor to vim
