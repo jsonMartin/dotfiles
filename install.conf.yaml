@@ -1,9 +1,7 @@
 - clean: ['~']
 
 - link:
-    ~/.tmux.conf: ./tmux/tmux.conf
     ~/.tmux.conf.local: tmux.conf.local
-    ~/.tmux: .tmux
     ~/.zshrc: zshrc
     ~/.aliasrc: aliasrc
     ~/.config/alacritty/alacritty.yml: alacritty.yml

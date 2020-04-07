@@ -365,23 +365,48 @@ set -g focus-events on # For FocusGained event for vim-gitgutter
 # set VI mode
 set-window-option -g mode-keys vi
 set -g status-keys vi
+
 ######################################
 #      TPM Plugin Manager Config
 ######################################
-# List of plugins
-# set -g @plugin 'tmux-plugins/tpm'
-# # set -g @plugin 'tmux-plugins/tmux-sensible'
-# set -g @plugin 'tmux-plugins/tmux-resurrect'
-# set -g @plugin 'tmux-plugins/tmux-continuum'
-# set -g @continuum-restore 'on'
+ # List of plugins
+ set -g @tpm_plugins '          \
+   tmux-plugins/tpm             \
+   tmux-plugins/tmux-resurrect  \
+   tmux-plugins/tmux-continuum  \
+   tmux-plugins/tmux-copycat \
+   tmux-plugins/tmux-yank \
+   tmux-plugins/tmux-open \
+   tmux-plugins/tmux-sidebar \
+'
 
-# Format for using in tmux.conf.local file: https://github.com/tmux-plugins/tpm/issues/127
-# List of plugins
-# set -g @tpm_plugins '           \
-#    tmux-plugins/tpm             \
-#    tmux-plugins/tmux-sensible   \
-#    tmux-plugins/tmux-resurrect  \
-# '
+set -g @continuum-restore 'on'
+set -g @resurrect-strategy-vim 'session' # for vim
+set -g @resurrect-strategy-nvim 'session' # for neovim
+set -g @continuum-save-interval '1'
+set -g @resurrect-processes 'journalctl docker ssh psql mysql sqlite3' # Additional processes to restore
+set -g @resurrect-capture-pane-contents 'on'
+
+# set -g @plugin 'christoomey/vim-tmux-navigator' # Allow for navigating between VIM & Tmux panes, Manually setting below instead so can add more apps other than VIM, such as FZF
+is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
+    | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?)(diff)?$'"
+is_fzf="ps -o state= -o comm= -t '#{pane_tty}' \
+  | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?fzf$'"
+bind-key -n 'C-h' if-shell "$is_vim || $is_fzf" 'send-keys C-h'  'select-pane -L'
+bind-key -n 'C-j' if-shell "$is_vim || $is_fzf" 'send-keys C-j'  'select-pane -D'
+bind-key -n 'C-k' if-shell "$is_vim || $is_fzf" 'send-keys C-k'  'select-pane -U'
+bind-key -n 'C-l' if-shell "$is_vim || $is_fzf" 'send-keys C-l'  'select-pane -R'
+tmux_version='$(tmux -V | sed -En "s/^tmux ([0-9]+(.[0-9]+)?).*/\1/p")'
+if-shell -b '[ "$(echo "$tmux_version < 3.0" | bc)" = 1 ]' \
+    "bind-key -n 'C-\\' if-shell \"$is_vim\" 'send-keys C-\\'  'select-pane -l'"
+if-shell -b '[ "$(echo "$tmux_version >= 3.0" | bc)" = 1 ]' \
+    "bind-key -n 'C-\\' if-shell \"$is_vim\" 'send-keys C-\\\\'  'select-pane -l'"
+
+bind-key -T copy-mode-vi 'C-h' select-pane -L
+bind-key -T copy-mode-vi 'C-j' select-pane -D
+bind-key -T copy-mode-vi 'C-k' select-pane -U
+bind-key -T copy-mode-vi 'C-l' select-pane -R
+bind-key -T copy-mode-vi 'C-\' select-pane -l
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
-# run -b '~/.tmux/plugins/tpm/tpm'
+run -b '~/.tmux/plugins/tpm/tpm'
