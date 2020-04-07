@@ -36,7 +36,7 @@ source ~/.aliasrc
 eval $(thefuck --alias) # Add alias for the "fuck" command
 
 # TODO: Fix scripts
-# Load Paths 
+# Load Paths
 # Adds `~/linuxConfig/scripts` and all subdirectories to $PATH
 # export PATH="$PATH:$(du "$HOME/linuxConfig/scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 
@@ -44,6 +44,10 @@ eval $(thefuck --alias) # Add alias for the "fuck" command
 
 # Broot tool
 # source /home/json/.config/broot/launcher/bash/br
+
+
+# Set default editor to vim
+export EDITOR=/usr/bin/nvim
 
 # FZF shell bindings (IMPORTANT: These need to go last)
 source /usr/share/fzf/key-bindings.zsh
