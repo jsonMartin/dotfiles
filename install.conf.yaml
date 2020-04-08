@@ -1,8 +1,3 @@
-- defaults:
-    link:
-      create: true
-      force: true
-
 - clean: ['~']
 
 - link:
