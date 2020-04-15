@@ -187,68 +187,68 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: true
 
-# Colors (Shades of Purple from VIM)
-colors:
-  # Default colors
-  primary:
-    background: "0x1E1E3F"
-    foreground: "0xE1EFFF"
-
-  # Colors the cursor will use if `custom_cursor_colors` is true
-  cursor:
-    text: "0x1E1E3F"
-    cursor: "0xFAD000"
-
-  # Normal colors
-  normal:
-    black: "0x000000"
-    red: "0xEC3A37"
-    green: "0x75e44c"
-    yellow: "0xFAD000"
-    blue: "0x6943FF"
-    magenta: "0xFF2C70"
-    cyan: "0x80FCFF"
-    white: "0xFFFFFF"
-
-  # Bright colors
-  bright:
-    black: "0x5C5C61"
-    red: "0xEC3A37F5"
-    green: "0x3AD900"
-    yellow: "0xFAD000"
-    blue: "0x6943FF"
-    magenta: "0xFB94FF"
-    cyan: "0x80FCFF"
-    white: "0x2D2B55"
-
-# # Colors (Blood Moon)
+# # Colors (shades of purple): https://github.com/Rigellute/shades-of-purple.vim
 # colors:
 #   # Default colors
 #   primary:
-#     background: '0x10100E'
-#     foreground: '0xC6C6C4'
+#     background: "0x1E1E3F"
+#     foreground: "0xE1EFFF"
+
+#   # Colors the cursor will use if `custom_cursor_colors` is true
+#   cursor:
+#     text: "0x1E1E3F"
+#     cursor: "0xFAD000"
 
 #   # Normal colors
 #   normal:
-#     black:   '0x10100E'
-#     red:     '0xC40233'
-#     green:   '0x009F6B'
-#     yellow:  '0xFFD700'
-#     blue:    '0x0087BD'
-#     magenta: '0x9A4EAE'
-#     cyan:    '0x20B2AA'
-#     white:   '0xC6C6C4'
+#     black: "0x000000"
+#     red: "0xEC3A37"
+#     green: "0x75e44c"
+#     yellow: "0xFAD000"
+#     blue: "0x6943FF"
+#     magenta: "0xFF2C70"
+#     cyan: "0x80FCFF"
+#     white: "0xFFFFFF"
 
 #   # Bright colors
 #   bright:
-#     black:   '0x696969'
-#     red:     '0xFF2400'
-#     green:   '0x03C03C'
-#     yellow:  '0xFDFF00'
-#     blue:    '0x007FFF'
-#     magenta: '0xFF1493'
-#     cyan:    '0x00CCCC'
-#     white:   '0xFFFAFA'
+#     black: "0x5C5C61"
+#     red: "0x3A37F5"
+#     green: "0x3AD900"
+#     yellow: "0xFAD000"
+#     blue: "0x6943FF"
+#     magenta: "0xFB94FF"
+#     cyan: "0x80FCFF"
+#     white: "0x2D2B55"
+
+# Colors (Blood Moon)
+colors:
+  # Default colors
+  primary:
+    background: '0x10100E'
+    foreground: '0xC6C6C4'
+
+  # Normal colors
+  normal:
+    black:   '0x10100E'
+    red:     '0xC40233'
+    green:   '0x009F6B'
+    yellow:  '0xFFD700'
+    blue:    '0x0087BD'
+    magenta: '0x9A4EAE'
+    cyan:    '0x20B2AA'
+    white:   '0xC6C6C4'
+
+  # Bright colors
+  bright:
+    black:   '0x696969'
+    red:     '0xFF2400'
+    green:   '0x03C03C'
+    yellow:  '0xFDFF00'
+    blue:    '0x007FFF'
+    magenta: '0xFF1493'
+    cyan:    '0x00CCCC'
+    white:   '0xFFFAFA'
 
 
 # # Colors (Ayu Dark)
