@@ -1,0 +1,9 @@
+[user]
+	name = jsonMartin
+	email = jason.carter.martin@gmail.com
+[diff]
+	tool = "nvim -d"
+[merge]
+	tool = "nvim -d"
+[difftool]
+	prompt = false
