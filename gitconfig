@@ -1,9 +1,20 @@
 [user]
 	name = jsonMartin
 	email = jason.carter.martin@gmail.com
-[diff]
-	tool = "nvim -d"
-[merge]
-	tool = "nvim -d"
-[difftool]
-	prompt = false
+
+[core]
+	pager = diff-so-fancy | less --tabs=4 -RFX
+[color]
+	ui = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
