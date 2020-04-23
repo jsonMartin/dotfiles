@@ -486,6 +486,9 @@ else
 
 endif
 
+" Set tabs to be 4 spaces
+set ts=4 sw=4
+
 """" PLUGINS NO LONGER USING
 " Multiple Cursors
 " Plug 'terryma/vim-multiple-cursors'
