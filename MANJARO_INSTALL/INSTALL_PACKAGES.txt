@@ -53,3 +53,4 @@ cmatrix
 expressvpn
 whatip-git
 yarn
+diff-so-fancy
