@@ -2,6 +2,10 @@
 	name = jsonMartin
 	email = jason.carter.martin@gmail.com
 
+[alias]
+	print = !git cat-file -p
+	staged = !git diff --cached
+
 [core]
 	pager = diff-so-fancy | less --tabs=4 -RFX
 [color]

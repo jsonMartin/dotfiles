@@ -63,10 +63,9 @@ else
 	Plug 'junegunn/fzf', { 'do': './install --bin' }
 	Plug 'junegunn/fzf.vim'
 
-
-
-
 	Plug 'Rigellute/shades-of-purple.vim' " Color Theme; Plug 'dracula/vim'
+
+	Plug 'mbbill/undotree'
 
 
 	" Ctrl-Space (instead of Ctrl-P)
@@ -87,7 +86,8 @@ else
 	Plug 'mileszs/ack.vim' " For the :Ack command
 
 	" Autocompletion
-	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	Plug 'zxqfl/tabnine-vim'
+	" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 	" TMUX like zooming
 	Plug 'dhruvasagar/vim-zoom'
@@ -186,6 +186,7 @@ nmap <Leader>w <Plug>(easymotion-bd-w)
 vmap <Leader>b <Plug>(easymotion-bd-w)
 vmap <Leader>e <Plug>(easymotion-bd-e)
 vmap <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>u :UndotreeToggle<cr>
 
 if exists('g:vscode')
 	xmap gc  <Plug>VSCodeCommentary
@@ -384,7 +385,7 @@ else
 	endfunction
 
 	" Highlight the symbol and its references when holding the cursor.
-	autocmd CursorHold * silent call CocActionAsync('highlight')
+	" autocmd CursorHold * silent call CocActionAsync('highlight')
 
 	" Symbol renaming.
 	nmap <leader>rn <Plug>(coc-rename)
@@ -490,6 +491,11 @@ endif
 set ts=4 sw=4
 
 set diffopt+=vertical
+
+" Persistant undo
+set undofile
+set undodir
+
 
 """" PLUGINS NO LONGER USING
 " Multiple Cursors

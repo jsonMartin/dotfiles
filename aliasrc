@@ -25,6 +25,7 @@ alias b="bat"
 # alias f="fzf"
 alias t="tmux"
 alias y="yarn"
+alias logview="less +F"
 
 # Xclip (copy to clipboard from terminal)
 alias xclip="xclip -sel clip"

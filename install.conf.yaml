@@ -13,3 +13,5 @@
     ~/.config/nvim/init.vim: init.vim
     ~/.ackrc: ackrc
     ~/.gitconfig: gitconfig
+    ~/.tldrrc: tldrrc
+    ~/.xbindkeysrc: xbindkeysrc
