@@ -45,3 +45,6 @@ alias gbr="git branch -vv"
 # Helpers
 alias mv="mv -i"
 alias cp="cp -i"
+alias j="z"
+alias e="explorer.exe"
+alias whatip="curl ipecho.net/plain"

@@ -496,6 +496,8 @@ set diffopt+=vertical
 set undofile
 set undodir
 
+" Set transparent bg color
+hi Normal guibg=NONE ctermbg=NONE
 
 """" PLUGINS NO LONGER USING
 " Multiple Cursors
