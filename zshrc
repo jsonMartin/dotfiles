@@ -1,6 +1,4 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -11,16 +9,31 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH="/home/json/.oh-my-zsh"
 
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-vi-mode alias-finder common-aliases copydir copyfile extract jsontools node npm urltools vscode web-search z zsh-syntax-highlighting zsh-autosuggestions history-substring-search)
+# Enable smart completion
+autoload -U compinit
+compinit
+
+####################################################################
+# ZSH Plugins
+####################################################################
+plugins=(vi-mode git copydir copyfile extract jsontools node npm urltools vscode web-search z zsh-syntax-highlighting fast-syntax-highlighting zsh-autosuggestions zsh-autocomplete) #zsh-vi-mode plugin has bugs with zsh-autocomplete
+
+# VIM bindings
+bindkey "^P" up-line-or-history
+bindkey "^[OA" up-line-or-beginning-search
+bindkey "^[[5~" up-line-or-history
+bindkey "^[[A" up-line-or-history
+bindkey "^N" down-line-or-history
+bindkey "^[OB" down-line-or-beginning-search
+bindkey "^[[6~" down-line-or-history
+bindkey "^[[B" down-line-or-history
+
+# Autocomplete
+zstyle ':autocomplete:tab:*' widget-style menu-select
+####################################################################
 
 source $ZSH/oh-my-zsh.sh
 
-source ~/.aliasrc
 ####################################################################
 # ZSH THEMES
 ####################################################################
@@ -39,37 +52,14 @@ if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
 fi
 
 ####################################################################
-# ZSH Plugins
-####################################################################
-source "$HOME/.zinit/bin/zinit.zsh"
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
-
-# Load a few important annexes, without Turbo
-# (this is currently required for annexes)
-zinit light-mode for \
-    zinit-zsh/z-a-rust \
-    zinit-zsh/z-a-as-monitor \
-    zinit-zsh/z-a-patch-dl \
-    zinit-zsh/z-a-bin-gem-node
-
-### End of Zinit's installer chunk
-# ZSH complete scripts
-zinit light marlonrichert/zsh-autocomplete
-zstyle ':autocomplete:tab:*' widget-style menu-select
-# zstyle ':autocomplete:tab:*' widget-style menu-complete # Menu-complete selects the bottom item with shift-tab, where menu-select goes to the bottom of the list instead
-
-####################################################################
 # Shell Configuration
 ####################################################################
 
 # Broot tool
-source /home/json/.config/broot/launcher/bash/br
+# source /home/json/.config/broot/launcher/bash/br
 
-# Zoxide (autojump functonality)
-eval "$(zoxide init zsh)"
-
-### Shell Configuration
 # Set default editor to vim
 export EDITOR=/usr/bin/nvim
 export VISUAL=/usr/bin/nvim
+
+source ~/.aliasrc
