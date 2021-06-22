@@ -7,7 +7,7 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/json/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Enable smart completion
 autoload -U compinit
@@ -37,7 +37,7 @@ source $ZSH/oh-my-zsh.sh
 ####################################################################
 # ZSH THEMES
 ####################################################################
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+source $HOME/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
