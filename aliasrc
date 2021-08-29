@@ -41,6 +41,7 @@ alias g="git"
 alias gl="git log --all --graph --decorate"
 alias gh="git log --all --graph --decorate --oneline"
 alias gbr="git branch -vv"
+alias gap="git add -p"
 
 # Helpers
 alias mv="mv -i"
