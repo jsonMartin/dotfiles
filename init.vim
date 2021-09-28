@@ -20,6 +20,7 @@ Plug 'junegunn/vim-peekaboo' " Peekaboo (shows content of registers when using \
 
 if exists('g:vscode')
 	Plug 'asvetliakov/vim-easymotion', { 'as': 'asvetliakov_vim-easymotion' }
+	set clipboard=unnamedplus
 else
 	Plug 'easymotion/vim-easymotion', { 'as': 'normal_easy_motion' }
 
@@ -259,7 +260,7 @@ else
 	" Rebind F1 to open the menu similar to VSCode
 	nmap <F1> :
 	" nmap <F2> :set paste!<CR>
-	" nmap <C-b> <C-v>
+	nmap <C-b> <C-v>
 
 	" FZF bindings
 	" Mapping selecting mappings
@@ -483,8 +484,6 @@ else
 	  execute ":'<,'>normal @".nr2char(getchar())
 	endfunction
 
-
-
 endif
 
 " Set tabs to be 4 spaces
@@ -499,8 +498,12 @@ set undodir
 " Set transparent bg color
 hi Normal guibg=NONE ctermbg=NONE
 
-"""" PLUGINS NO LONGER USING
-" Multiple Cursors
-" Plug 'terryma/vim-multiple-cursors'
-" " let g:multi_cursor_use_default_mapping=0
-" let g:multi_cursor_select_all_word_key = '<C-m>'
+
+" Automatically add yanked text to clipboard in WSL: https://waylonwalker.com/vim-wsl-clipboard/
+if system('uname -r') =~ "Microsoft"
+    augroup Yank
+        autocmd!
+        autocmd TextYankPost * :call system('/mnt/c/windows/system32/clip.exe ',@")
+        augroup END
+endif
+

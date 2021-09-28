@@ -16,11 +16,13 @@ gtop
 gping
 jq
 lsd
+man
+miller
 neovim-nightly-bin
-neovim-python
+python-neovim
 nodejs
 npm
-rigrep
+rigrep-all
 sd
 shellcheck
 speedtest-cli
@@ -29,4 +31,6 @@ tig
 tldr
 tmux
 toilet
+wget
 yarn
+htmlq

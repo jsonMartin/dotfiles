@@ -31,6 +31,9 @@ alias logview="less +F"
 alias xclip="xclip -sel clip"
 alias xc="xclip"
 
+# Clip command to copy from WSL to Windows clipboard
+alias clip="clip.exe"
+
 # Git aliases
 alias gcam="git commit -am"
 alias gc="git commit"
