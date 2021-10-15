@@ -18,7 +18,7 @@ jq
 lsd
 man
 miller
-neovim-nightly-bin
+neovim
 python-neovim
 nodejs
 npm
