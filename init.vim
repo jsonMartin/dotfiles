@@ -499,6 +499,9 @@ set undodir
 hi Normal guibg=NONE ctermbg=NONE
 
 
+" Remap decrement number from Ctrl-x -> Ctrl-r
+nnoremap <C-r> <C-x>
+
 " Automatically add yanked text to clipboard in WSL: https://waylonwalker.com/vim-wsl-clipboard/
 if system('uname -r') =~ "Microsoft"
     augroup Yank

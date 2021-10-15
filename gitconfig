@@ -47,3 +47,5 @@
 # automatically launch merge tool without displaying a prompt
 [mergetool]
   prompt = false
+[push]
+	default = current
