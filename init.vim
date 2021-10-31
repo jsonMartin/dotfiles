@@ -499,8 +499,8 @@ set undodir
 hi Normal guibg=NONE ctermbg=NONE
 
 
-" Remap decrement number from Ctrl-x -> Ctrl-r
-nnoremap <C-r> <C-x>
+" Remap decrement number from Ctrl-x -> Ctrl-y
+nnoremap <C-y> <C-x>
 " Remap increment number from Ctrl-a -> Ctrl-t
 nnoremap <C-t> <C-a>
 nnoremap <C-a> ggVG
