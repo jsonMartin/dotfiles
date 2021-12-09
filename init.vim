@@ -119,12 +119,16 @@ else
 	" Javascript plugin
 	Plug 'pangloss/vim-javascript'
 
+	" Plug 'vim-scripts/nextval'
+	" nmap <silent> <unique> = <Plug>nextvalInc
+	" nmap <silent> <unique> - <Plug>nextvalDec
+
 	Plug 'haya14busa/incsearch.vim'
 	Plug 'haya14busa/incsearch-easymotion.vim'
 	Plug 'haya14busa/incsearch-fuzzy.vim'
 	map /  <Plug>(incsearch-forward)
 	map ?  <Plug>(incsearch-backward)
-	map g/ <Plug>(incsearch-stay)
+	map g/ <Plug>(incsearch-stay
 	map <Leader>/ <Plug>(incsearch-easymotion-/)
 	map <Leader>? <Plug>(incsearch-easymotion-?)
 	map <Leader>g/ <Plug>(incsearch-easymotion-stay)
@@ -498,18 +502,56 @@ set undodir
 " Set transparent bg color
 hi Normal guibg=NONE ctermbg=NONE
 
-
-" Remap decrement number from Ctrl-x -> Ctrl-y
-nnoremap <C-y> <C-x>
-" Remap increment number from Ctrl-a -> Ctrl-t
-nnoremap <C-t> <C-a>
 nnoremap <C-a> ggVG
 
-" Automatically add yanked text to clipboard in WSL: https://waylonwalker.com/vim-wsl-clipboard/
-if system('uname -r') =~ "Microsoft"
-    augroup Yank
-        autocmd!
-        autocmd TextYankPost * :call system('/mnt/c/windows/system32/clip.exe ',@")
-        augroup END
-endif
 
+" Remap decrement number from Ctrl-x -> Ctrl-y
+" nnoremap <C-y> <C-x>
+" Remap increment number from Ctrl-a -> Ctrl-t
+" nnoremap <C-t> <C-a>
+
+" Improve incrementing/decrementing
+function! AddSubtract(char, back)
+  let pattern = &nrformats =~ 'alpha' ? '[[:alpha:][:digit:]]' : '[[:digit:]]'
+  call search(pattern, 'cw' . a:back)
+  execute 'normal! ' . v:count1 . a:char
+  silent! call repeat#set(":\<C-u>call AddSubtract('" .a:char. "', '" .a:back. "')\<CR>")
+endfunction
+nmap <silent> <unique> - :call AddSubtract("\<C-x>", '')<CR>
+nmap <silent> <unique> + :call AddSubtract("\<C-a>", '')<CR>
+
+" nmap <silent> <unique> = :call AddSubtract("\<C-a>", '')<CR>
+" nmap <silent> <unique> + :call AddSubtract("\<C-a>", 'b')<CR>
+" nmap <silent> <unique> - :call AddSubtract("\<C-x>", '')<CR>
+" nmap <silent> <unique> _ :call AddSubtract("\<C-x>", 'b')<CR>
+
+
+" noremap +:call AddSubtract("\<C-a>", '')<CR>
+" noremap -:call AddSubtract("\<C-x>", '')<CR>
+" noremap <A-+>:call AddSubtract("\<C-a>", 'b')<CR>
+" noremap <A-->:call AddSubtract("\<C-x>", 'b')<CR>
+
+" nnoremap <silent> <Leader>:<C-u>call AddSubtract("\<C-a>", '')<CR>
+" nnoremap <silent> <Leader>= :<C-u>call AddSubtract("\<C-a>", 'b')<CR>
+" nnoremap <Leader>=:<C-u>call AddSubtract("\<C-x>", '')<CR>
+" nnoremap <silent> <Leader><C-y> :<C-u>call AddSubtract("\<C-x>", 'b')<CR>
+
+
+" Automatically add yanked text to clipboard in WSL: https://waylonwalker.com/vim-wsl-clipboard/
+" if system('uname -r') =~ "Microsoft"
+"     augroup Yank
+"         autocmd!
+"         autocmd TextYankPost * :call system('/mnt/c/windows/system32/clip.exe ',@")
+"         augroup END
+" endif
+
+set clipboard=unnamedplus " default
+if has('clipboard') || exists('g:vscode') " [1]
+    let s:clip = '/mnt/c/Windows/System32/clip.exe'  " change this path according to your mount point [2]
+    if executable(s:clip)
+        augroup WSLYank
+            autocmd!
+            autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
+        augroup END
+    endif
+endif

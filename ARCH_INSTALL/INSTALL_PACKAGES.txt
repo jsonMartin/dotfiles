@@ -15,6 +15,7 @@ curlie
 gtop
 gping
 jq
+lazygit
 lsd
 man
 miller
