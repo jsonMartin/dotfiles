@@ -17,7 +17,7 @@ compinit
 ####################################################################
 # ZSH Plugins
 ####################################################################
-plugins=(vi-mode git copydir copyfile extract jsontools node npm urltools vscode web-search zsh-z zsh-syntax-highlighting fast-syntax-highlighting zsh-autosuggestions zsh-autocomplete) #zsh-vi-mode plugin has bugs with zsh-autocomplete
+plugins=(vi-mode git copypath copyfile extract jsontools node npm urltools vscode web-search zsh-z zsh-syntax-highlighting fast-syntax-highlighting zsh-autosuggestions zsh-autocomplete) #zsh-vi-mode plugin has bugs with zsh-autocomplete
 
 # VIM bindings
 bindkey "^P" up-line-or-history

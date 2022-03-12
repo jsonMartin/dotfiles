@@ -502,13 +502,15 @@ set undodir
 " Set transparent bg color
 hi Normal guibg=NONE ctermbg=NONE
 
-nnoremap <C-a> ggVG
 
 
-" Remap decrement number from Ctrl-x -> Ctrl-y
-" nnoremap <C-y> <C-x>
-" Remap increment number from Ctrl-a -> Ctrl-t
-" nnoremap <C-t> <C-a>
+" Remap decrement number from Ctrl-x -> Ctrl-[
+"noremap <C-[> <C-x>
+" Remap increment number from Ctrl-a -> Ctrl-]
+" noremap <C-k> <C-a>
+" noremap <C-;> <C-x>
+" noremap <C-"> <C-a>
+" noremap <C-'> <C-a>
 
 " Improve incrementing/decrementing
 function! AddSubtract(char, back)
@@ -517,8 +519,26 @@ function! AddSubtract(char, back)
   execute 'normal! ' . v:count1 . a:char
   silent! call repeat#set(":\<C-u>call AddSubtract('" .a:char. "', '" .a:back. "')\<CR>")
 endfunction
-nmap <silent> <unique> - :call AddSubtract("\<C-x>", '')<CR>
-nmap <silent> <unique> + :call AddSubtract("\<C-a>", '')<CR>
+
+" Improve incrementing/decrementing
+function! AddSubtract(char, back)
+  let pattern = &nrformats =~ 'alpha' ? '[[:alpha:][:digit:]]' : '[[:digit:]]'
+  call search(pattern, 'cw' . a:back)
+  execute 'normal! ' . v:count1 . a:char
+  silent! call repeat#set(":\<C-u>call AddSubtract('" .a:char. "', '" .a:back. "')\<CR>")
+endfunction
+
+
+" Improved add/subtract fn
+"noremap <silent> <unique> _  :call AddSubtract("\<C-x>", '')<CR>
+noremap <silent> <Leader>-  :call AddSubtract("\<C-x>", '')<CR>
+"nmap <silent> <unique> = :call AddSubtract("\<C-a>", '')<CR>
+noremap <silent> <Leader>+ :call AddSubtract("\<C-a>", '')<CR>
+noremap _ :call AddSubtract("\<C-a>", '')<CR>
+
+noremap - <C-x>
+noremap + <C-a>
+
 
 " nmap <silent> <unique> = :call AddSubtract("\<C-a>", '')<CR>
 " nmap <silent> <unique> + :call AddSubtract("\<C-a>", 'b')<CR>
@@ -546,7 +566,7 @@ nmap <silent> <unique> + :call AddSubtract("\<C-a>", '')<CR>
 " endif
 
 set clipboard=unnamedplus " default
-if has('clipboard') || exists('g:vscode') " [1]
+if has('WSL')
     let s:clip = '/mnt/c/Windows/System32/clip.exe'  " change this path according to your mount point [2]
     if executable(s:clip)
         augroup WSLYank
@@ -555,3 +575,9 @@ if has('clipboard') || exists('g:vscode') " [1]
         augroup END
     endif
 endif
+
+" Rebind Ctrl keys: Select All, Copy, Cut, Save
+noremap <C-a> ggVG
+noremap <C-c> y
+noremap <C-x> d
+noremap <C-s> :w<CR>
