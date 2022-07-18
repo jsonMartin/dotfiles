@@ -52,6 +52,28 @@ if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
         print -P "%F{160}▓▒░ The clone has failed.%f%b"
 fi
 
+
+####################################################################
+# Pipe SSH-Agent to Windows
+#
+# https://stuartleeks.com/posts/wsl-ssh-key-forward-to-windows/
+# https://nxn.io/posts/vscode_remote/
+
+# 1Password Config:
+# https://developer.1password.com/docs/ssh/get-started/#step-3-turn-on-the-1password-ssh-agent
+####################################################################
+# Route SSH Agent Forwarding to Windows Host's ssh-agent
+export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
+
+ss -a | grep -q $SSH_AUTH_SOCK
+
+if [ $? -ne 0 ]; then
+
+    rm -f $SSH_AUTH_SOCK
+
+    (setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:"npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork &) > /dev/null 2>&1
+
+fi
 ####################################################################
 # Shell Configuration
 ####################################################################

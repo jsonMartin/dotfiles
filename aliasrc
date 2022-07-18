@@ -26,6 +26,7 @@ alias b="bat"
 alias t="tmux"
 alias y="yarn"
 alias logview="less +F"
+alias n="node"
 
 # Xclip (copy to clipboard from terminal)
 alias xclip="xclip -sel clip"

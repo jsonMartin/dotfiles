@@ -86,10 +86,6 @@ else
 	" Ack
 	Plug 'mileszs/ack.vim' " For the :Ack command
 
-	" Autocompletion
-	Plug 'zxqfl/tabnine-vim'
-	" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 	" TMUX like zooming
 	Plug 'dhruvasagar/vim-zoom'
 	nmap <Leader>z <Plug>(zoom-toggle)
@@ -137,6 +133,15 @@ else
 	map <Leader>g/ <Plug>(incsearch-fuzzy-stay)
 
 endif
+
+
+
+" Autocompletion
+Plug 'github/copilot.vim'
+"Plug 'zxqfl/tabnine-vim'
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+
 call plug#end()
 
 " Plug 'junegunn/goyo.vim'
