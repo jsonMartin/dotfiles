@@ -1,3 +1,4 @@
+# yay -S interception-caps2esc
 #!/bin/bash
 # Post install config solution found at: https://askubuntu.com/questions/979359/how-do-i-install-caps2esc
 

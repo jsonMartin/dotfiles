@@ -1,0 +1,21 @@
+--------------------------
+| Pop Shell
+--------------------------
+Post configuration setup
+--------------------------
+
+# Set Pop Shell Shortcuts
+You can run the following script to setup the default Pop Shell shortcuts:
+
+/usr/share/gnome-shell/extensions/pop-shell@system76.com/scripts/configure.sh
+
+
+# Set activate launcher to be Super Space, plus Alt Space
+# https://superuser.com/questions/409843/add-more-than-one-keyboard-shortcut-for-an-action-in-gnome
+
+gsettings set org.gnome.shell.extensions.pop-shell activate-launcher "['<Super>Space','<Alt>Space']"
+
+# Move current window left, right Workspaces (Workspace = virtual desktop)
+Settings -> keyboard -> shortcuts -> navigation
+
+Move window one workspace to the left/right. Reassign those shortcuts (Ctrl+Win+Shift + <- and ->) and bob's your uncle.

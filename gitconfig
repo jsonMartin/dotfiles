@@ -49,3 +49,5 @@
   prompt = false
 [push]
 	default = current
+[credential]
+	helper = cache
