@@ -1,0 +1,3 @@
+appimagelauncher
+solaar # logitech mouse
+menulibre # for editing GNOME menus

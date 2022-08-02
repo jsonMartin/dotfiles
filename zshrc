@@ -1,3 +1,6 @@
+# Set Flags
+isWindows=false
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -17,7 +20,7 @@ compinit
 ####################################################################
 # ZSH Plugins
 ####################################################################
-plugins=(vi-mode git copypath copyfile extract jsontools node npm urltools vscode web-search zsh-z zsh-syntax-highlighting fast-syntax-highlighting zsh-autosuggestions zsh-autocomplete) #zsh-vi-mode plugin has bugs with zsh-autocomplete
+plugins=(vi-mode git copypath copyfile extract jsontools node npm urltools vscode web-search zsh-z zsh-syntax-highlighting F-Sy-H zsh-autosuggestions zsh-autocomplete) #zsh-vi-mode plugin has bugs with zsh-autocomplete
 
 # VIM bindings
 bindkey "^P" up-line-or-history
@@ -43,14 +46,14 @@ source $HOME/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-### Added by Zinit's installer
-if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
-    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
-    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
-    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
-        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
-        print -P "%F{160}▓▒░ The clone has failed.%f%b"
-fi
+# ### Added by Zinit's installer
+# if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
+#     print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
+#     command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
+#     command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
+#         print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
+#         print -P "%F{160}▓▒░ The clone has failed.%f%b"
+# fi
 
 
 ####################################################################
@@ -63,16 +66,18 @@ fi
 # https://developer.1password.com/docs/ssh/get-started/#step-3-turn-on-the-1password-ssh-agent
 ####################################################################
 # Route SSH Agent Forwarding to Windows Host's ssh-agent
-export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
+if $isWindows; then
+	export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
 
-ss -a | grep -q $SSH_AUTH_SOCK
+	ss -a | grep -q $SSH_AUTH_SOCK
 
-if [ $? -ne 0 ]; then
+	if [ $? -ne 0 ]; then
 
-    rm -f $SSH_AUTH_SOCK
+		#rm -f $SSH_AUTH_SOCK
 
-    (setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:"npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork &) > /dev/null 2>&1
+		(setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:"npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork &) > /dev/null 2>&1
 
+	fi
 fi
 ####################################################################
 # Shell Configuration
