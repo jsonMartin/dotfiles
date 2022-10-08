@@ -20,6 +20,7 @@ alias dc="docker-compose"
 alias dcu="docker-compose up"
 alias dcd="docker-compose down"
 alias dcr="docker-compose restart"
+alias du="dust" # Graphical du replacement. Easily see how disk is being used
 alias b="bat"
 # alias fzf="fzf -m"
 # alias f="fzf"
@@ -27,6 +28,9 @@ alias t="tmux"
 alias y="yarn"
 alias logview="less +F"
 alias n="node"
+alias d="delta" # Diff replacement
+alias diff="difft" # Diff replacement
+alias df="duf" # df replacement
 
 # Xclip (copy to clipboard from terminal)
 alias xclip="xclip -sel clip"
