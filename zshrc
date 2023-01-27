@@ -92,3 +92,7 @@ export VISUAL=/usr/bin/nvim
 
 source ~/.aliasrc
 source /usr/share/nvm/init-nvm.sh
+
+# PNPM config
+export PNPM_HOME="/home/json/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"

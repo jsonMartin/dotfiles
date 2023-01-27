@@ -44,3 +44,4 @@ angle-grinder # Statistics from command line
 jo
 gron
 glow
+github-cli

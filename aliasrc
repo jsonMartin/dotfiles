@@ -57,3 +57,5 @@ alias cp="cp -i"
 alias j="z"
 alias e="explorer.exe"
 alias whatip="curl ipecho.net/plain"
+
+alias pn="pnpm"
