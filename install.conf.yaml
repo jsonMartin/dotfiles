@@ -8,9 +8,11 @@
 - link:
     ~/.tmux.conf.local: tmux.conf.local
     ~/.zshrc: zshrc
+    ~/.zshrc_macos: zshrc_macos
     ~/.aliasrc: aliasrc
     ~/.config/alacritty/alacritty.yml: alacritty.yml
     ~/.config/nvim/init.vim: init.vim
+    ~/.config/karabiner/karabiner.json: karabiner.json
     ~/.ackrc: ackrc
     ~/.gitconfig: gitconfig
     ~/.tldrrc: tldrrc

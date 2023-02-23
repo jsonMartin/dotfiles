@@ -59,3 +59,6 @@ alias e="explorer.exe"
 alias whatip="curl ipecho.net/plain"
 
 alias pn="pnpm"
+
+# Warp Terminal aliases
+alias ..="cd .." # Fixes ...,.... autocomplete coming in above ../ directory

@@ -138,7 +138,7 @@ endif
 
 " Autocompletion
 Plug 'github/copilot.vim'
-"Plug 'zxqfl/tabnine-vim'
+""Plug 'zxqfl/tabnine-vim'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 
