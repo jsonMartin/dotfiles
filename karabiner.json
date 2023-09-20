@@ -79,7 +79,8 @@
                                         "bundle_identifiers": [
                                             "com\\.microsoft\\.VSCode",
                                             "com\\.googlecode\\.iterm2",
-                                            "dev.warp.Warp-Stable"
+                                            "com\\.jetbrains\\.WebStorm",
+                                            "dev\\.warp\\.Warp-Stable"
                                         ],
                                         "type": "frontmost_application_if"
                                     }
@@ -115,7 +116,8 @@
                                         "bundle_identifiers": [
                                             "com\\.microsoft\\.VSCode",
                                             "com\\.googlecode\\.iterm2",
-                                            "dev.warp.Warp-Stable"
+                                            "com\\.jetbrains\\.WebStorm",
+                                            "dev\\.warp\\.Warp-Stable"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }

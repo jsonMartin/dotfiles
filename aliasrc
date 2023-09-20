@@ -1,18 +1,17 @@
 alias ls="lsd"
 alias l="lsd"
-alias la="lsd -a"
+alias la="lsd -aA"
 alias lrth="lsd -lrtha"
-alias h="history"
+alias h="history | fzf -e --tac"
 alias p="ping"
 alias pg="ping www.google.com"
 alias p1="ping 1.1"
 alias c="clear"
 alias y="yarn"
 alias du="du -h"
-alias vs="code"
 #alias code="code-insiders"
 #alias vs="code-insiders"
-alias open="xdg-open"
+#alias open="xdg-open" # Remove for MacOS
 alias o="open"
 alias py="python3"
 alias v="nvim"
@@ -32,6 +31,10 @@ alias d="delta" # Diff replacement
 alias diff="difft" # Diff replacement
 alias df="duf" # df replacement
 
+# VS Code
+alias code="code-insiders"
+alias vs="code"
+
 # Xclip (copy to clipboard from terminal)
 alias xclip="xclip -sel clip"
 alias xc="xclip"
@@ -46,9 +49,12 @@ alias gcm="git commit -m"
 alias gaa="git add --all"
 alias gco="git checkout"
 alias g="git"
+alias gpu="git push"
+alias gpl="git pull"
 alias gl="git log --all --graph --decorate"
 alias gh="git log --all --graph --decorate --oneline"
 alias gbr="git branch -vv"
+alias grbi="git rebase --interactive"
 alias gap="git add -p"
 
 # Helpers
@@ -62,3 +68,11 @@ alias pn="pnpm"
 
 # Warp Terminal aliases
 alias ..="cd .." # Fixes ...,.... autocomplete coming in above ../ directory
+
+# Quasar
+alias qd="quasar dev"
+alias qb="quasar build"
+alias qs="quasar serve"
+
+# Flutter
+alias flutter="fvm flutter"

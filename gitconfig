@@ -1,6 +1,6 @@
 [user]
 	name = jsonMartin
-	email = jason.carter.martin@gmail.com
+	email = 4033621+jsonMartin@users.noreply.github.com
 
 [alias]
 	print = !git cat-file -p
@@ -51,3 +51,8 @@
 	default = current
 [credential]
 	helper = cache
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

@@ -1,0 +1,13 @@
+---
+"pane_group:navigate_up": ctrl-cmd-k
+"workspace:show_keybinding_settings": ctrl-alt-cmd-k
+"pane_group:navigate_left": ctrl-cmd-h
+"pane_group:add_left": shift-cmd-H
+"editor_view:clear_lines": shift-cmd-D
+"pane_group:navigate_down": ctrl-cmd-j
+"pane_group:add_up": shift-cmd-K
+"input:toggle_workflows": shift-cmd-O
+"pane_group:add_right": shift-cmd-L
+"pane_group:add_down": shift-cmd-J
+"workspace:toggle_launch_config_palette": ctrl-alt-cmd-l
+"pane_group:navigate_right": ctrl-cmd-l

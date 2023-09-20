@@ -1,0 +1,13 @@
+name: Get Mac App Bundle ID
+command: osascript -e 'id of app "{{app_name}}"'
+tags:
+  - mac
+description: Get Mac App Bundle ID
+arguments:
+  - name: app_name
+    description: Name of file to get bundle ID for
+    default_value:
+source_url: "https://jsonmart.in"
+author: jsonMartin
+author_url: "https://jsonmart.in"
+shells: []

@@ -9,6 +9,13 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+# eval "$(starship init zsh)"
+
+
+# Disable popup to show X results (y/n) [captures keyboard input, distracting]
+zstyle ':completion:*' list-prompt   ''
+zstyle ':completion:*' select-prompt ''
+
 # Enable smart completion
 autoload -U compinit
 compinit
@@ -17,6 +24,7 @@ compinit
 # ZSH Plugins
 ####################################################################
 plugins=(vi-mode git copyfile extract jsontools node npm urltools vscode web-search z zsh-syntax-highlighting fast-syntax-highlighting zsh-autosuggestions zsh-autocomplete) #zsh-vi-mode plugin has bugs with zsh-autocomplete, #copydir removed on MacOS
+# plugins=(vi-mode git copyfile extract jsontools node npm urltools vscode web-search z zsh-syntax-highlighting fast-syntax-highlighting zsh-autosuggestions) #zsh-vi-mode plugin has bugs with zsh-autocomplete
 
 # VIM bindings
 bindkey "^P" up-line-or-history
@@ -29,7 +37,7 @@ bindkey "^[[6~" down-line-or-history
 bindkey "^[[B" down-line-or-history
 
 # Autocomplete
-zstyle ':autocomplete:tab:*' widget-style menu-select
+# zstyle ':autocomplete:tab:*' widget-style menu-select
 ####################################################################
 
 source $ZSH/oh-my-zsh.sh

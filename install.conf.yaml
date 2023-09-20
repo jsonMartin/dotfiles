@@ -8,6 +8,7 @@
 - link:
     ~/.tmux.conf.local: tmux.conf.local
     ~/.zshrc: zshrc
+    ~/.config/fish/config.fish: config.fish
     ~/.zshrc_macos: zshrc_macos
     ~/.aliasrc: aliasrc
     ~/.config/alacritty/alacritty.yml: alacritty.yml
