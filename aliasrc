@@ -52,10 +52,11 @@ alias g="git"
 alias gpu="git push"
 alias gpl="git pull"
 alias gl="git log --all --graph --decorate"
-alias gh="git log --all --graph --decorate --oneline"
+alias glo="git log --all --graph --decorate --oneline"
 alias gbr="git branch -vv"
 alias grbi="git rebase --interactive"
 alias gap="git add -p"
+alias cop="gh copilot"
 
 # Helpers
 alias mv="mv -i"

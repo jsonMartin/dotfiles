@@ -1,11 +1,12 @@
 - defaults:
     link:
-        create: true
-        force: true
+      create: true
+      force: true
 
-- clean: ['~']
+- clean: ["~"]
 
 - link:
+    ~/.tmux.conf: tmux.conf
     ~/.tmux.conf.local: tmux.conf.local
     ~/.zshrc: zshrc
     ~/.config/fish/config.fish: config.fish

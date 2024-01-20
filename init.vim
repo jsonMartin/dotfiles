@@ -12,13 +12,11 @@ if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/plugged')
-
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
+" Plug 'easymotion/vim-easymotion'
 Plug 'dkarter/bullets.vim' " Bullet points & number lists
 Plug 'junegunn/vim-peekaboo' " Peekaboo (shows content of registers when using \"/@ in normal mode and CTRL-R in insert mode)
-
-Plug 'easymotion/vim-easymotion', { 'as': 'normal_easy_motion' }
 
 " VIM Icons
 Plug 'ryanoasis/vim-devicons'
@@ -40,7 +38,6 @@ let g:NERDTreePatternMatchHighlightFullName = 1
 Plug 'airblade/vim-gitgutter'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
-
 Plug 'jreybert/vimagit'
 Plug 'tpope/vim-commentary'
 
@@ -60,7 +57,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 
-Plug 'Rigellute/shades-of-purple.vim' " Color Theme; Plug 'dracula/vim'
 
 Plug 'mbbill/undotree'
 
@@ -116,7 +112,6 @@ Plug 'pangloss/vim-javascript'
 " nmap <silent> <unique> - <Plug>nextvalDec
 
 Plug 'haya14busa/incsearch.vim'
-Plug 'haya14busa/incsearch-easymotion.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
@@ -137,7 +132,24 @@ Plug 'github/copilot.vim'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 
+Plug 'Rigellute/shades-of-purple.vim' " Color Theme; Plug 'dracula/vim'
+
+
+Plug 'smoka7/hop.nvim'
 call plug#end()
+
+lua require('hop').setup({})
+nmap \ :HopAnywhere<CR>
+vmap \ :HopAnywhere<CR>
+vmap <Leader>; :HopCamelCase<CR>
+vmap <Leader>/ :HopPattern<CR>
+vmap <Leader>G :HopLine<CR>
+vmap <Leader>g :HopLineStart<CR>
+nmap <Leader>; :HopCamelCase<CR>
+nmap <Leader>/ :HopPattern<CR>
+nmap <Leader>G :HopLine<CR>
+nmap <Leader>g :HopLineStart<CR>
+
 
 " Plug 'junegunn/goyo.vim'
 " Plug 'vimwiki/vimwiki'
@@ -170,41 +182,7 @@ nmap <CR> :
 vmap <CR> :
 " Easymotion binding
 " map <Leader> <Plug>(easymotion-prefix)
-map  <Leader>f <Plug>(easymotion-bd-f)
-nmap <Leader>F <Plug>(easymotion-overwin-f)
-nmap <Leader>S <Plug>(easymotion-overwin-f2)
-map <Leader>l <Plug>(easymotion-bd-jk)
-map <Leader>L <Plug>(easymotion-overwin-line)
-nmap <Leader>W <Plug>(easymotion-overwin-w)
-" nmap \| <Plug>(easymotion-overwin-w)
-nmap <Leader>: <Plug>(easymotion-overwin-w)
-vmap <Leader>: <Plug>(easymotion-overwin-w)
-nmap <Leader>? <Plug>(easymotion-overwin-w)
-vmap <Leader>? <Plug>(easymotion-overwin-w)
-nmap <Leader>b <Plug>(easymotion-bd-w)
-nmap <Leader>e <Plug>(easymotion-bd-e)
-nmap <Leader>w <Plug>(easymotion-bd-w)
-vmap <Leader>b <Plug>(easymotion-bd-w)
-vmap <Leader>e <Plug>(easymotipon-bd-e)
-vmap <Leader>w <Plug>(easymotion-bd-w)
-
-
-map <C-/> <Plug>(incsearch-easymotion-/)
-imap <C-/> <Plug>(incsearch-easymotion-/)
-nmap <C-/> <Plug>(incsearch-easymotion-/)
-nmap <C-;> <Plug>(incsearch-easymotion-/)
-imap <C-;> <Esc><Plug>(incsearch-easymotion-/)
-map <leader>; <Plug>(incsearch-easymotion-/)
-map <Leader>/ <Plug>(incsearch-easymotion-/)
-
-map <leader>j <Plug>(easymotion-jumptoanywhere)
-map <C-j> <Plug>(easymotion-jumptoanywhere)
-imap <C-j> <Esc><Plug>(easymotion-jumptoanywhere)
-nmap <C-j> <Plug>(easymotion-jumptoanywhere)
-nmap \ <Plug>(easymotion-jumptoanywhere)
-
 nmap <Leader>u :UndotreeToggle<cr>
-
 inoremap <M-f> <esc>:PrettierAsync<cr>
 nnoremap <M-f> :PrettierAsync<cr>
 
