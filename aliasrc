@@ -77,3 +77,6 @@ alias qs="quasar serve"
 
 # Flutter
 alias flutter="fvm flutter"
+
+# Bun
+alias br="bun run"

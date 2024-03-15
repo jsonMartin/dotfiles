@@ -1,3 +1,5 @@
 fish
 datamash
 keycastr
+shottr # brew install --cask shottr
+wifi-password # cli tool to get the current wifi password

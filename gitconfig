@@ -17,13 +17,20 @@
     minus-style = "syntax #340001"
     syntax-theme = Monokai Extended
     navigate = true
-	side-by-side = true
+    side-by-side = true
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
 
 [interactive]
-    diffFilter = delta --color-only
+	diffFilter = delta --color-only
 
 [color]
 	ui = true
+
 [color "diff-highlight"]
 	oldNormal = red bold
 	oldHighlight = red bold 52
@@ -56,3 +63,4 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+
